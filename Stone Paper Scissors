@@ -7,10 +7,11 @@ Scissors
 """)
 
 possible=["Stone","Paper","Scissors"]
-computer_choice=random.choice(possible)
+
 
 while True:
     user = input("Start The Game: ")
+    computer_choice=random.choice(possible)
     print(f"You Chose {user} and Computer chose {computer_choice}")
     if user == computer_choice:
         print("IT WAS A TIE")
