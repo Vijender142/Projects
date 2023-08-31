@@ -1,0 +1,18 @@
+import random
+
+guess = []
+x = random.randint(0, 100)
+while True:
+    number = int(input("Enter Your Number: "))
+    guess.append(number)
+    if number>100 or number < 0:
+        print("Your Guess is inavlid")
+    elif number==x:
+        print("Your Guess Is Correct")
+        break;
+    elif number < x:
+        print("Your Guess is low guess a bit higher")
+    else:
+        print("Your Guess is high guess a bit lower")
+print("Your Guesses were:",guess)
+print(f"Your total guesses were {len(guess)}")
