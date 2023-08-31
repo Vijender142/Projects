@@ -1,0 +1,8 @@
+a = float(input('Enter the temprature in Celsius: '))
+b=input("Do you want to convert it into Fahrenheit or Kelvin? ")
+if b == "Fahrenheit" or b == "fahrenheit" or b == "F" or b == "f":
+    print(a * 1.8 + 32, 'ºF')
+elif b == "Kelvin" or b == "kelvin" or b == 'k' or b == "K":
+    print(a+273.15, "ºK")
+else:
+    print("Sorry you entered an invalid Temperature unit")
