@@ -1,0 +1,34 @@
+import random
+print(""""
+User Inputs
+Stone
+Paper
+Scissors
+""")
+
+possible=["Stone","Paper","Scissors"]
+computer_choice=random.choice(possible)
+
+while True:
+    user = input("Start The Game: ")
+    print(f"You Chose {user} and Computer chose {computer_choice}")
+    if user == computer_choice:
+        print("IT WAS A TIE")
+    elif user == "Stone":
+        if user == "Stone" and computer_choice == "Paper":
+            print("Paper Covers Stone : You Lose")
+        else:
+            print("Stone breaks Scissors:You Win")
+    elif user == "Paper":
+        if user == "Paper" and computer_choice == "Stone":
+            print("Paper Covers Stone : You Win")
+        else:
+            print("Scissors cuts Paper:You Lose")
+    elif user == "Scissors":
+        if user == "Scissors" and computer_choice == "Stone":
+            print("Stone Breaks Scissors : You Lose")
+        else:
+            print("Scissors cut Paper:You Win")
+    play_again = input("Do you want to play again? (y/n): ")
+    if play_again.lower() != "y":
+        break
