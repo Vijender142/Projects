@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Blood Bank Management System</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Blood Bank Management System</h1>
+
+        <h2>Registered Donors</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Blood Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for donor in donors %}
+                    <tr>
+                        <th scope="row">{{ donor.id }}</th>
+                        <td>{{ donor.name }}</td>
+                        <td>{{ donor.blood_type }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2 class="mt-4">Add Donor</h2>
+        <form method="POST" action="/add_donor">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="blood_type">Blood Type:</label>
+                <input type="text" class="form-control" id="blood_type" name="blood_type" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
