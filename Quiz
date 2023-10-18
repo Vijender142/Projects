@@ -1,47 +1,31 @@
-q1 =""""
-Who developed Python Programming Language?
-a) Wick van Rossum
-b) Rasmus Lerdorf
-c) Guido van Rossum
-d) Niene Stom
-"""
-q2=""""
-Which type of Programming does Python support?
-a) object-oriented programming
-b) structured programming
-c) functional programming
-d) all of the mentioned
-"""
-q3=""""
-Is Python case sensitive when dealing with identifiers?
-a) no
-b) yes
-c) machine dependent
-d) none of the mentioned
-"""
-q4="""
-Which of the following is the correct extension of the Python file?
-a) .python
-b) .pl
-c) .py
-d) .p
-"""
-q5="""
-Is Python code compiled or interpreted?
-a) Python code is both compiled and interpreted
-b) Python code is neither compiled nor interpreted
-c) Python code is only compiled
-d) Python code is only interpreted
-"""
-questions = {q1:"c",q2:"d",q3:"b",q4:"c",q5:"a"}
-score =0
-for i in questions:
-    print(i)
-    ans = input("Your answer?(a,b,c,d): ")
-    if ans == questions[i]:
-        print("Correct")
-        score+=1
-    else:
-        print("Sorry")
-        score-=0.25
-print(f"Your final score is {score}")
+import json
+class Quiz:
+    def __init__(self):
+        self.score=0
+    # def question(self):
+    #     print(self.question)
+    # def answers(self):
+    #     print(f"Your score is {self.score}/{len(self.question())}")
+    def save_quiz(self,question,option,answer):
+        self.file=json.load(open('quiz.json','r'))
+        self.data = {
+            "question": question,
+            "options": option,
+            "answer":answer
+        }
+        self.file.append(self.data)
+        open('quiz.json','w').write(json.dumps(self.file,indent=4))
+    def play_quiz(self):
+        for q in self.file:
+            print(q["question"])
+            for a in q["options"]:
+                print(a)
+            user=input("Enter your choice: ")
+            if user.strip().lower()==q['answer'].strip().lower():
+                print("Correct\n")
+                self.score+=1
+            else:
+                print(f"Wrong,The correct answer is {q['answer']}\n")
+                self.score-=1
+
+            print(f"Your score is total score is {self.score} out of {len(self.file)}")
