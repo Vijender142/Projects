@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
     <title>Blood Bank Management System</title>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 mx-auto">
+        <img src="{{ url_for('static', filename='images/blood_bank_logo.png') }}" alt="Blood Bank Logo" class="logo">
         <h1 class="mb-4">Blood Bank Management System</h1>
 
         <h2>Registered Donors</h2>
@@ -42,6 +46,5 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    </div>
 </body>
 </html>
